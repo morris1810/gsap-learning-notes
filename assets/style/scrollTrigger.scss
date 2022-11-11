@@ -1,0 +1,39 @@
+@use 'mFunc';
+
+body {
+    background-color: #eee;
+}
+
+.projectContainer {
+    display: grid;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    .project {
+        @include mFunc.dFlex($direction: column);
+        @include mFunc.softShadow-o;
+        max-width: 500px; 
+        border-radius: 10px; 
+        text-decoration: none;
+        .projectPreview {
+            //iframe
+            height: 60%; 
+            width: 80%;
+            border-radius: 5px;
+            margin-top: 20px; 
+        }
+        .projectTitle {
+            color: var(--color-1);
+            padding: 10px 0 10px 10px;
+
+        }
+        .projectDesc {
+            color: var(--color-1);
+            padding: 0 0 10px 10px;
+            opacity: 0.5;
+        }
+        &:active {
+            @include mFunc.softShadow-i;
+        }
+    }
+}

@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Learn GSAP</title>
+
+    <link rel="icon" type="image/x-icon" href="assets/img/gsap-icon.ico">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="assets/style/mainStyle.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+</head>
+<body>
+    <nav id="navBar">
+        <div id="navLeft"></div>
+        <h1>GSAP Animation Note</h1>
+        <div id="navRight"></div>
+    </nav>
+    <section id="mainContent"> 
+        <div class="part">
+            <h3>Basic Method</h3>
+            <hr> <!-- ===================================== -->
+            <p>There are two or more arguments...</p>
+            <p>1st arrgument : put a string to select class"." or id"#" of the element. Using<code class="inline">querySeletor()</code> or <code class="inline">querySeletorAll()</code></p>
+            <p>2nd arrgument : an object to store some animation variable</p>
+            <hr> <!-- ===================================== -->
+            <p>
+                <code class="inline">.to()</code>
+                used for put target from current state animate it to the defined value. 
+            </p>
+            <code class="block">
+                gsap.to("#box1", { 
+                    x: 150
+                });
+            </code>
+            <animation-field>
+                <div class="box" id="box1"></div>
+                <script>
+                    gsap.to("#box1", { 
+                        x: 150
+                    });
+                </script>
+            </animation-field>
+            <hr> <!-- ===================================== -->
+            <p>
+                <code class="inline">.from()</code>
+                element from defined value to current status
+            </p>
+            <code class="block">
+                gsap.from("#box2", { 
+                    x: 150 
+                });
+            </code>
+            <animation-field>
+                <div class="box" id="box2"></div>
+                <script>
+                    gsap.from("#box2", { 
+                        x: 150 
+                    });
+                </script>
+            </animation-field>
+            <hr> <!-- ===================================== -->
+            <p>
+                <code class="inline">.fromTo()</code>
+                 can set the target element from where to where
+            </p>
+            <code class="block">
+                gsap.fromTo(
+                    "#box3", 
+                    {x : 0}, 
+                    {x : 300}
+                )
+            </code>
+            <animation-field>
+                <div class="box" id="box3"></div>
+                <script>
+                    gsap.fromTo(
+                        "#box3", 
+                        {x : 0}, 
+                        {x : 300}
+                    )
+                </script>
+            </animation-field>
+            <hr> <!-- ===================================== -->
+            <p>
+                <code class="inline">.set()</code>
+                 set the property value immediately without animation, zero-duration
+            </p>
+            <code class="block">
+                gsap.set("#box4", { x: 150 });
+            </code>
+            <animation-field>
+                <div class="box" id="box4"></div>
+                <script>
+                    gsap.set("#box4", { x: 150 });
+                </script>
+            </animation-field>
+            <hr> <!-- ===================================== -->
+            <p>Multiple Selection</p>
+            <code class="block">
+                const box5 = document.getElementById("box5");<br>
+                const box6 = document.getElementById("box6");<br>
+                gsap.to([box5, box6], {x: 100});
+            </code>
+            <animation-field>
+                <div class="box" id="box5"></div>
+                <div class="box" id="box6"></div>
+                <script>
+                    const box5 = document.getElementById("box5");
+                    const box6 = document.getElementById("box6");
+                    gsap.to([box5, box6], {x: 100});
+                </script>
+            </animation-field>
+        </div>
+
+        <div class="part">
+            <h3>Animation Variables</h3>
+            <hr> <!-- ===================================== -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Desc.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>x: 100</td>
+                        <td>transform: translateX(100px)</td>
+                    </tr>
+                    <tr>
+                        <td>y: 100</td>
+                        <td>transform: translateY(100px)</td>
+                    </tr>
+                    <tr>
+                        <td>xPercent: 50</td>
+                        <td>transform: translateX(50%)</td>
+                    </tr>
+                    <tr>
+                        <td>yPercent: 50</td>
+                        <td>transform: translateY(50%)</td>
+                    </tr>
+                    <tr>
+                        <td>rotate: 50</td>
+                        <td>transform: rotate(50deg)</td>
+                    </tr>
+                    <tr>
+                        <td>rotateX: 50</td>
+                        <td>transform: rotateX(50deg)</td>
+                    </tr>
+                    <tr>
+                        <td>scale: 3</td>
+                        <td>transform: scale(3 3)</td>
+                    </tr>
+                    <tr>
+                        <td>scaleX: 3</td>
+                        <td>transform: scaleX(3)</td>
+                    </tr>
+                    <tr>
+                        <td>scaleY: 3</td>
+                        <td>transform: scaleY(3)</td>
+                    </tr>
+                    <tr>
+                        <td>skewX: 45</td>
+                        <td>transform: skewX(45deg)</td>
+                    </tr>
+                    <tr>
+                        <td>skewY: 45</td>
+                        <td>transform: skewY(45deg)</td>
+                    </tr>
+                    <tr>
+                        <td>rotateY: 50</td>
+                        <td>transform: rotateY(50deg)</td>
+                    </tr>
+                    <tr>
+                        <td>transformOrigin: "0% 100%"</td>
+                        <td>transform-origin: 0% 100%;</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>If using int as the value by default it will be <code class="inline">px</code> or <code class="inline">deg</code></p>
+            <p>If u want to use other units can do calc. in js or put a string for the value</p>
+            <code class="block">
+                x: 100 
+                <br>x: '100vw'
+                <br>
+                <br><span class="comment">//Doing calc. and get return value</span>
+                <br>x: () => window.innerWidth / 2;
+            </code>
+            <p>Most of the CSS property can use in GSAP just change the hyphen-seperate case to camelCase</p>
+            <p>It is recommended to use more transfrom and opacity in GSAP, but for the filter and boxShadow are CPU-Intensive</p>
+        </div>
+        <div class="part">
+            <h3>SVG Animation</h3>
+            <hr> <!-- ===================================== -->
+            <p>animate the attribute for the svg</p>
+            <code class="block">
+                gsap.to("#rect1", {
+                    attr: {
+                        rx: 50, 
+                        fill: "#25f7c9"
+                    }
+            </code>
+            <animation-field>
+                <svg height="100" width="100">
+                    <rect id="rect1" rx="5" height="100" width="100" fill="#6445ff" /> 
+                </svg>
+                <script>
+                    gsap.to("#rect1", {
+                        attr: {
+                            rx: 50, 
+                            fill: "#25f7c9"
+                        }
+                    })
+                </script>
+            </animation-field>
+        </div>
+        <div class="part">
+            <h3>Animate numberic value, color, and others...</h3>
+            <hr> <!-- ===================================== -->
+            <code class="block">
+                const canvas1 = document.getElementById('canvas1');
+                <br>const ctx = canvas1.getContext('2d');
+                <br>ctx.fillStyle = "#25f7c9";
+                <br>
+                <br>let position = { x: 0, y: 0 };
+                <br>
+                <br>function draw() {
+                <br><span class="tab"></span>ctx.clearRect(0, 0, canvas1.width, canvas1.height);
+                <br><span class="tab"></span>ctx.fillRect(position.x, position.y, 100, 100);
+                <br>
+                <br>}
+                <br>
+                <br>gsap.to(position, {
+                <br><span class="tab"></span>x: 150, 
+                <br><span class="tab"></span>y: 50, 
+                <br><span class="tab"></span>onUpdate: draw
+                <br>})
+            </code>
+            <animation-field>
+                <canvas id="canvas1"></canvas>
+                <script>
+                    const canvas1 = document.getElementById('canvas1');
+                    const ctx = canvas1.getContext('2d');
+                    ctx.fillStyle = "#25f7c9";
+                    
+                    let position = { x: 0, y: 0 };
+
+                    function draw() {
+                        ctx.clearRect(0, 0, canvas1.width, canvas1.height);
+                        ctx.fillRect(position.x, position.y, 50, 50);
+
+                    }
+
+                    gsap.to(position, {
+                        x: 150, 
+                        y: 50, 
+                        onUpdate: draw
+                    })
+                </script>
+            </animation-field>
+        </div>
+        <div class="part">
+            <h3>Special Properties</h3>
+            <hr> <!-- ===================================== -->
+            <table>
+                <thead>
+                    <tr>
+                        <th style="min-width: 120px;">Property</th>
+                        <th>Desc</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>duration: 2</td>
+                        <td>second, default=0.5</td>
+                    </tr>
+                    <tr>
+                        <td>delay: 5</td>
+                        <td>second</td>
+                    </tr>
+                    <tr>
+                        <td>repeat: 2</td>
+                        <td>for infinite is -1</td>
+                    </tr>
+                    <tr>
+                        <td>yoyo: true</td>
+                        <td>animation will run opposite direction, default is false</td>
+                    </tr>
+                    <tr>
+                        <td>stagger: 1</td>
+                        <td>if given multiple targets, set a time ( second ) between each target </td>
+                    </tr>
+                    <tr>
+                        <td>ease: "power2.inOut"</td>
+                        <td>will look more in next part</td>
+                    </tr>
+                    <tr>
+                        <td>onUpdate: func</td>
+                        <td>on every value updated do something</td>
+                    </tr>
+                    <tr>
+                        <td>onComplete: func</td>
+                        <td>value as a function</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr> <!-- ===================================== -->
+            <p><code class="inline">duration</code>, <code class="inline">repeat</code>, and <code class="inline">yoyo</code></p>
+            <code class="block">
+                gsap.to("#box7", {
+                <br><span class="tab"></span>x: 150, 
+                <br><span class="tab"></span>duration: 1,
+                <br><span class="tab"></span>repeat: -1, 
+                <br>})
+                <br>
+                <br>gsap.to("#box8", {
+                <br><span class="tab"></span>x: 150, 
+                <br><span class="tab"></span>duration: 1, 
+                <br><span class="tab"></span>repeat: -1, 
+                <br><span class="tab"></span>yoyo: true
+                <br>})
+            </code>
+            <animation-field>
+                <div class="box" id="box7"></div>
+                <div class="box" id="box8">yoyo</div>
+                <script>
+                    gsap.to("#box7", {
+                        x: 150, 
+                        duration: 1,
+                        repeat: -1, 
+                    })
+                    gsap.to("#box8", {
+                        x: 150, 
+                        duration: 1, 
+                        repeat: -1, 
+                        yoyo: true
+                    })
+                </script>
+            </animation-field>
+            <hr> <!-- ===================================== -->
+            <p><code class="inline">stagger</code></p>
+            <code class="block">
+                const staggerList1 = document.querySelectorAll('.stagger1');
+                <br>gsap.to(staggerList1, {
+                <br><span class="tab"></span>x: 150, 
+                <br><span class="tab"></span>stagger: 0.5
+                <br>})
+            </code>
+            <animation-field>
+                <div class="box stagger1" id="box9">stagger i</div>
+                <div class="box stagger1" id="box10">stagger ii</div>
+                <div class="box stagger1" id="box11">stagger iii</div>
+                <script>
+                    const staggerList1 = document.querySelectorAll('.stagger1');
+                    gsap.to(staggerList1, {
+                        x: 150, 
+                        stagger: 0.5
+                    })
+                </script>
+            </animation-field>
+            <p>SUPER!!! <code class="inline">stagger</code></p>
+            <code class="block">
+                const staggerList2 = document.querySelector("#stagger2");
+                <br>
+                <br><span class="comment">//Styling</span>
+                <br>staggerList2.style.display = "grid";
+                <br>staggerList2.style.grid = "auto /50px 50px 50px 50px 50px 50px 50px 50px 50px";
+                <br>staggerList2.style.gap = "0px";
+                <br>
+                <br>for (let i = 0; i < 81; i++) {
+                <br><span class="tab"></span>const staggerItem = document.createElement("div");
+                <br><span class="tab"></span>staggerItem.classList.add("smallBox"); 
+                <br><span class="tab"></span>staggerItem.classList.add("stagger2"); 
+                <br><span class="tab"></span>staggerList2.appendChild(staggerItem);
+                <br>}
+                <br>const staggerList2Child = document.querySelectorAll(".stagger2");
+                <br>gsap.to(staggerList2Child, {
+                <br><span class="tab"></span>scale: 0.1,
+                <br><span class="tab"></span>duration: 0.5,
+                <br><span class="tab"></span>repeat: -1,
+                <br><span class="tab"></span>repeatDelay: 0.5,
+                <br><span class="tab"></span>yoyo: true,
+                <br><span class="tab"></span>ease: "none",
+                <br><span class="tab"></span>stagger: {
+                <br><span class="tab"></span><span class="tab"></span>grid: "auto",
+                <br><span class="tab"></span><span class="tab"></span>amount: 0.4, 
+                <br><span class="tab"></span><span class="tab"></span>from: "center" 
+                <br><span class="tab"></span>}
+                <br>})
+            </code>
+            <animation-field>
+                <div id="stagger2"></div>
+                <script>
+                    const staggerList2 = document.querySelector("#stagger2");
+                    staggerList2.style.display = "grid";
+                    staggerList2.style.grid = "auto /50px 50px 50px 50px 50px 50px 50px 50px 50px";
+                    staggerList2.style.gap = "0px";  
+
+                    for (let i = 0; i < 81; i++) {
+                        const staggerItem = document.createElement("div");
+                        staggerItem.classList.add("smallBox"); 
+                        staggerItem.classList.add("stagger2");
+                        staggerList2.appendChild(staggerItem);
+                    }
+                    const staggerList2Child = document.querySelectorAll(".stagger2");
+                    gsap.to(staggerList2Child, {
+                        scale: 0,
+                        duration: 1,
+                        repeat: -1,
+                        repeatDelay: 0.7, 
+                        yoyo: true,
+                        stagger: {
+                            grid: "auto",
+                            amount: 0.6,  
+                            from: "center" 
+                        }
+                    })
+                </script>
+            </animation-field>
+            <hr> <!-- ===================================== -->
+            <p><code class="inline">ease</code></p>
+            <p>Syntax</p>
+            <code class="block">
+                gsap.to(target, {ease: "a.b"})
+            </code>
+            <table>
+                <thead>
+                    <tr>
+                        <th>a</th>
+                        <th>b</th>
+                    </tr> 
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>none<button class="testEaseBtn" onclick="testEaseAnimateA('none')">try</button></td>
+                        <td rowspan="5">in<button class="testEaseBtn" onclick="testEaseAnimateB('in')" value="">try</button></td>
+                    </tr>
+                    <tr>
+                        <td>power1<button class="testEaseBtn" onclick="testEaseAnimateA('power1')">try</button></td>
+                    </tr>
+                    <tr>
+                        <td>power2<button class="testEaseBtn" onclick="testEaseAnimateA('power2')">try</button></td>
+                    </tr>
+                    <tr>
+                        <td>power3<button class="testEaseBtn" onclick="testEaseAnimateA('power3')">try</button></td>
+                    </tr>
+                    <tr>
+                        <td>power4<button class="testEaseBtn" onclick="testEaseAnimateA('power4')">try</button></td>
+                    </tr>
+                    <tr>
+                        <td>back</td>
+                        <td rowspan="5">out<button class="testEaseBtn" onclick="testEaseAnimateB('out')" value="">try</button></td>
+                    </tr>
+                    <tr>
+                        <td>elastic</td>
+                    </tr>
+                    <tr>
+                        <td>bounce<button class="testEaseBtn" onclick="testEaseAnimateA('bounce')">try</button></td>
+                    </tr>
+                    <tr>
+                        <td>rough</td>
+                    </tr>
+                    <tr>
+                        <td>slow</td>
+                    </tr>
+                    <tr>
+                        <td>steps</td>
+                        <td rowspan="5">inOut<button class="testEaseBtn" onclick="testEaseAnimateB('inOut')" value="">try</button></td>
+                    </tr>
+                    <tr>
+                        <td>circ<button class="testEaseBtn" onclick="testEaseAnimateA('circ')">try</button></td>
+                    </tr>
+                    <tr>
+                        <td>expo<button class="testEaseBtn" onclick="testEaseAnimateA('expo')">try</button></td>
+                    </tr>
+                    <tr>
+                        <td>sine<button class="testEaseBtn" onclick="testEaseAnimateA('sine')">try</button></td>
+                    </tr>
+                    <tr>
+                        <td>'Customize'</td>
+                    </tr>
+                </tbody>
+            </table>
+            <animation-field>
+                <div class="box" id="box12"></div>
+                <script>
+                    let a = "none";
+                    let b = "out";
+                    const box12 = document.querySelector("#box12");
+
+                    function testEaseAnimateA(value) {
+                        a = value;
+                        box12.innerText = a + "." + b;
+                        gsap.fromTo("#box12", {
+                            x: 0
+                        }, {
+                            x: 300, 
+                            duration: 2,
+                            ease: a + "." + b
+                        });  
+                    }
+                    function testEaseAnimateB(value) {
+                        b = value;
+                        box12.innerText = a + "." + b;
+                        gsap.fromTo("#box12", {
+                            x: 0
+                        }, {
+                            x:300, 
+                            duration: 2,
+                            ease: a + "." + b
+                        });
+                    }
+                </script>
+            </animation-field>
+            <p>for more example look <a target="_blank" href="https://greensock.com/get-started/#easing">here</a></p>
+        </div>
+        <div class="part">
+            <h3>Timeline</h3>
+            <hr> <!-- ===================================== -->
+            <p><code class="inline">gsap.inline()</code>set a new time line for animation</p>
+            <code class="block">
+                const tl1 = gsap.timeline();
+                <br>
+                <br>1.to("#box13", {x: 150, duration: 0.5})
+                <br>1.to("#box14", {x: 200, duration: 0.5})
+                <br>1.to("#box15", {x: 100, duration: 1})
+                <br><span class="comment">//Total 2 second animation for this timeline</span>
+            </code>
+            <animation-field>
+                <div class="box" id="box13"></div>
+                <div class="box" id="box14"></div>
+                <div class="box" id="box15"></div>
+                <script>
+                    const tl = gsap.timeline();
+
+                    tl.to("#box13", {x: 150, duration: 0.5})
+                    tl.to("#box14", {x: 200, duration: 0.5})
+                    tl.to("#box15", {x: 100, duration: 1})
+                    //Total 2 second animation for this timeline
+                </script>
+            </animation-field>
+            <hr> <!-- ===================================== -->
+            <p>add a gap into the timeline by giving the third argument inside <code class="inline">tl.to()</code>.</p>
+            <p><code class="inline"><</code>: start of previous animation, may add an integer behind the symbol.</p>
+            <p><code class="inline">></code>: end of previous animation, may add an integer behind the symbol.</p>
+            <p><code class="inline">i</code>: start of timeline</p>
+            <p><code class="inline">+=i</code> / <code class="inline">-=i</code>: end of animation.</p>
+            <p>value of <code class="inline">i</code> can be in percentage(10%) or second(2)</p>
+            <code class="block">
+                const tl2 = gsap.timeline();
+                <br>
+                <br><span class="comment">//Add a gap at the begining of animation</span>
+                <br>tl2.to('#box16', {x: 150}, 1);
+                <br><span class="comment">//Add a gap with 0.2 second at the end of previous animation (box16)</span>
+                <br>tl2.to('#box17', {x: 150}, ">0.2");
+            </code>
+            <animation-field>
+                <div class="box" id="box16"></div>
+                <div class="box" id="box17"></div>
+                <script>
+                    const tl2 = gsap.timeline();
+
+                    //Add a gap at the begining of animation
+                    tl2.to('#box16', {x: 150}, 1);
+                    //Add a gap with 0.2 second at the end of previous animation (box16) 
+                    tl2.to('#box17', {x: 150}, ">0.2");
+                </script>
+            </animation-field>
+            <p>for visible timeline look <a href="https://greensock.com/get-started-2#positionParameter" target="_blank">here</a></p>
+            <hr> <!-- ===================================== -->
+            <p>add some special properties to the timeline can make all the element inside the timeline share the same property value.</p>
+            <code class="block">
+                const tl3 = gsap.timeline({
+                <br><span class="tab"></span>repeat: -1,
+                <br><span class="tab"></span>yoyo: true
+                <br>});
+                <br>
+                <br>tl3.to('#box18', {borderRadius: "50%"});
+                <br>tl3.to('#box19', {borderRadius: "50%"});
+                <br>tl3.to('#box20', {borderRadius: "50%"});
+            </code>
+            <animation-field>
+                <div class="box" id="box18"></div>
+                <div class="box" id="box19"></div>
+                <div class="box" id="box20"></div>
+                <script>
+                    const tl3 = gsap.timeline({
+                        repeat: -1,
+                        yoyo: true
+                    });
+
+                    tl3.to('#box18', {borderRadius: "50%"});
+                    tl3.to('#box19', {borderRadius: "50%"});
+                    tl3.to('#box20', {borderRadius: "50%"});
+                </script>
+            </animation-field>
+            <hr> <!-- ===================================== -->
+            <p><code class="inline">default</code> may set the default value share to all element in a timeline. </p>
+            <code class="block">
+                const tl4 = gsap.timeline({defaults: {backgroundColor: "#25f7c9"}});
+                <br>
+                <br>tl4.to("#box21", {x:150})
+                <br><span class="tab"></span>.to("#box22", {x:150})
+                <br><span class="tab"></span>.to("#box23", {x:150});
+            </code>
+            <animation-field>
+                <div class="box" id="box21"></div>
+                <div class="box" id="box22"></div>
+                <div class="box" id="box23"></div>
+                <script>
+                    const tl4 = gsap.timeline({defaults: {backgroundColor: "#25f7c9"}});
+
+                    tl4.to("#box21", {x:150})
+                       .to("#box22", {x:150})
+                       .to("#box23", {x:150});
+                </script>
+            </animation-field>
+        </div>
+        <div class="part">
+            <h3>GSAP Animation Controller</h3>
+            <hr> <!-- ===================================== -->
+            <li><code class="inline">play()</code>,<code class="inline">pause()</code>,<code class="inline">resume()</code>,<code class="inline">reverse()</code>,<code class="inline">restart()</code>.</li>
+            <li><code class="inline">seek(sec)</code>: jump to specific second.</li>
+            <li><code class="inline">progress(0~1)</code>: jump to the percentage of progress.<br>E.g: 0.25 = 1/4</li>
+            <li><code class="inline">timeScale(i)</code>: scale the animation time. E.g: 2 = double speed</li>
+            <li><code class="inline">kill()</code>: kill the animation immediately</li>
+            <code class="block">
+                const controlAnimation1 = gsap.to('#box24', {
+                <br><span class="tab"></span>x: 200, 
+                <br><span class="tab"></span>rotate: 360,
+                <br><span class="tab"></span>duration: 3
+                <br>})
+                <br>document.getElementById("play1").addEventListener('click', () => {controlAnimation1.play()});
+                <br>document.getElementById("pause1").addEventListener('click', () => {controlAnimation1.pause()});
+                <br>document.getElementById("resume1").addEventListener('click', () => {controlAnimation1.resume()});
+                <br>document.getElementById("reverse1").addEventListener('click', () => {controlAnimation1.reverse()});
+                <br>document.getElementById("restart1").addEventListener('click', () => {controlAnimation1.restart()});
+            </code>
+            <animation-field>
+                <div class="box" id="box24"></div>
+                <div class="controller">
+                    <button class="controlBtn" id="play1">play()</button>
+                    <button class="controlBtn" id="pause1">pause()</button>
+                    <button class="controlBtn" id="resume1">resume()</button>
+                    <button class="controlBtn" id="reverse1">reverse()</button>
+                    <button class="controlBtn" id="restart1">restart()</button>
+                </div>
+                <script>
+                    const controlAnimation1 = gsap.to('#box24', {
+                        x: 200, 
+                        rotate: 360,
+                        duration: 3
+                    })
+                    document.getElementById("play1").addEventListener('click', () => {controlAnimation1.play()});
+                    document.getElementById("pause1").addEventListener('click', () => {controlAnimation1.pause()});
+                    document.getElementById("resume1").addEventListener('click', () => {controlAnimation1.resume()});
+                    document.getElementById("reverse1").addEventListener('click', () => {controlAnimation1.reverse()});
+                    document.getElementById("restart1").addEventListener('click', () => {controlAnimation1.restart()});
+                </script>
+            </animation-field>
+        </div>
+        <div class="part">
+            <h3>Callback</h3>
+            <hr> <!-- ===================================== -->
+            <li><code class="inline">onComplete</code>: </li>
+            <li><code class="inline">onStart</code>: </li>
+            <li><code class="inline">onUpdate</code>: </li>
+            <li><code class="inline">onRepeat</code>: </li>
+            <li><code class="inline">onReverseComplete</code>: </li>
+            <code class="block">
+                const box25 = document.getElementById("box25");
+                <br>let count = 0;
+                <br>gsap.to('#box25', {
+                <br><span class="tab"></span>x: 200, 
+                <br><span class="tab"></span>duration: 3,
+                <br><span class="tab"></span>onUpdate: () => {
+                <br><span class="tab"></span><span class="tab"></span>box25.innerHTML = Math.round(gsap.getProperty(box25, "x"))
+                <br><span class="tab"></span>},
+                <br><span class="tab"></span>onComplete: () => {box25.innerHTML = "Complete"}
+                <br>})
+            </code>
+            <animation-field>
+                <div class="box" id="box25"></div>
+                <script>
+                    const box25 = document.getElementById("box25");
+                    let count = 0;
+                    gsap.to('#box25', {
+                        x: 200, 
+                        duration: 3,
+                        onUpdate: () => {
+                            box25.innerHTML = Math.round(gsap.getProperty(box25, "x"))
+                        },
+                        onComplete: () => {box25.innerHTML = "Complete"}
+                    })
+                </script>
+            </animation-field>
+        </div>
+        <div class="part">
+            <a href="scrollTrigger.html">
+                <center><h1 id="pluginWord" style="font-size: 100px;">Plugin</h1></center></div>
+            </a>
+        <script>
+            gsap.to("#pluginWord", {
+                color: "#fff", 
+                repeat: -1,
+                duration: 0.5, 
+                yoyo: true
+            })
+        </script>
+    </section>
+
+    <!-- Script -->
+    <script src="assets/script/mainScript.js"></script>
+</body>
+</html>

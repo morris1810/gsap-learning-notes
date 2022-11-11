@@ -1,0 +1,38 @@
+@mixin dFlex($align: center, $justify: center, $direction: row) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin absCenter() {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin softShadow-o {
+    background: linear-gradient(145deg, #d6d6d6, #ffffff);
+    box-shadow:  33px 33px 36px #dddddd,
+                -33px -33px 36px #ffffff;
+}
+@mixin softShadow-i {
+    background: #eeeeee;
+    box-shadow: inset 33px 33px 36px #dddddd,
+                inset -33px -33px 36px #ffffff;
+}
+
+$white-1: #fff;
+$white-2: #eee;
+$white-3: #ddd;
+
+$half-white-1: rgb(255, 255, 255, 0.5);
+
+$black-1: #000;
+$black-2: #121212;
+$black-3: #232323;
+$black-4: #292929;
+
+$half-black-1: rgb(0, 0, 0, 0.8);
+

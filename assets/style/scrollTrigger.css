@@ -1,0 +1,40 @@
+body {
+  background-color: #eee;
+}
+
+.projectContainer {
+  display: grid;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+.projectContainer .project {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(145deg, #d6d6d6, #ffffff);
+  box-shadow: 33px 33px 36px #dddddd, -33px -33px 36px #ffffff;
+  max-width: 500px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+.projectContainer .project .projectPreview {
+  height: 60%;
+  width: 80%;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+.projectContainer .project .projectTitle {
+  color: var(--color-1);
+  padding: 10px 0 10px 10px;
+}
+.projectContainer .project .projectDesc {
+  color: var(--color-1);
+  padding: 0 0 10px 10px;
+  opacity: 0.5;
+}
+.projectContainer .project:active {
+  background: #eeeeee;
+  box-shadow: inset 33px 33px 36px #dddddd, inset -33px -33px 36px #ffffff;
+}/*# sourceMappingURL=scrollTrigger.css.map */
