@@ -50,7 +50,7 @@ window.addEventListener("load", function() {
 
     const tl = gsap.timeline({
         defaults: {
-            rotate: 0, 
+            rotate: 30, 
             scale: 3, 
             stagger: 1, 
             duration: 1, 
@@ -69,6 +69,13 @@ window.addEventListener("load", function() {
 
     tl.to(leftDoorList, {xPercent: -250})
     .to(rightDoorList, {xPercent: 250}, "<")
+    .to("#jd1", {
+        rotate: 360,
+        scale: 1, 
+        stagger: 1, 
+        duration: 9,  
+        ease: "power1.inOut"
+    }, "<")
 
     // tl
     // .to("#ld1", {xPercent: -260})
