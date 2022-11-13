@@ -67,8 +67,8 @@ window.addEventListener("load", function() {
         onComplete: () => {this.window.scrollTo(0, 0)}
     })
 
-    tl.to(leftDoorList, {xPercent: -250})
-    .to(rightDoorList, {xPercent: 250}, "<")
+    tl.to(leftDoorList, {xPercent: -300})
+    .to(rightDoorList, {xPercent: 300}, "<")
     .to("#jd1", {
         rotate: 360,
         scale: 1, 
